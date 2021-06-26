@@ -1,6 +1,8 @@
 Snap of the Oxygen cursor themes (from both the oxygen-cursor-theme and oxygen-cursor-theme-extra packages) originally created for KDE 4.
 
+[![oxygen-cursors](https://snapcraft.io/oxygen-cursors/badge.svg)](https://snapcraft.io/oxygen-cursors)
 
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/oxygen-cursors)
 
 ---
 
@@ -20,9 +22,9 @@ cd oxygen-cursors-snap
 
 snapcraft
 
-# where CURRENT is the latest version of flat-remix-gtk
+# where CURRENT is the latest version of oxygen-cursors
 # and --dangerous since this local snap hasn't been verified
-snap install oxygen-cursors-snap_CURRENT_all.snap --dangerous
+snap install oxygen-cursors_CURRENT_all.snap --dangerous
 ```
 
 ## Applying the theme
