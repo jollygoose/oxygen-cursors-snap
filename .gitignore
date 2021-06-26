@@ -1,0 +1,6 @@
+*.py
+*.bak
+store/
+deb/
+*.snap
+

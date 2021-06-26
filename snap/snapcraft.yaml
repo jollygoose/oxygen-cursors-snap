@@ -1,0 +1,73 @@
+name: oxygen-cursors
+version: 0.0.2012-06-kde4.8-2.1ubuntu1
+base: core18
+license: GPL-3.0
+grade: stable
+confinement: strict
+architectures:
+  - all
+summary: Oxygen Cursor Theme
+description: |
+  This snap contains the Oxygen Cursor Theme (both oxygen-cursor-theme and oxygen-cursor-theme-extra), 
+  originally created for KDE 4. The cursors are available in numerous colors to match the style of any desktop.
+slots:
+  icon-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/icons/oxy-white
+        - $SNAP/share/icons/oxy-blue
+        - $SNAP/share/icons/oxy-yellow
+        - $SNAP/share/icons/oxy-zion
+        - $SNAP/share/icons/oxy-black
+        - $SNAP/share/icons/oxy-wonton
+        - $SNAP/share/icons/oxy-grey
+        - $SNAP/share/icons/oxy-sea_blue
+        - $SNAP/share/icons/oxy-chrome
+        - $SNAP/share/icons/oxy-bluecurve
+        - $SNAP/share/icons/oxy-green
+        - $SNAP/share/icons/oxy-midnight_meadow
+        - $SNAP/share/icons/oxy-terra_green
+        - $SNAP/share/icons/oxy-obsidian-hc
+        - $SNAP/share/icons/oxy-cherry
+        - $SNAP/share/icons/oxy-violet
+        - $SNAP/share/icons/oxy-red-argentina
+        - $SNAP/share/icons/oxy-navy
+        - $SNAP/share/icons/oxy-oxygen
+        - $SNAP/share/icons/oxy-purple
+        - $SNAP/share/icons/oxy-red
+        - $SNAP/share/icons/oxy-olympus
+        - $SNAP/share/icons/oxy-brown
+        - $SNAP/share/icons/oxy-whitewater
+        - $SNAP/share/icons/oxy-viorange
+        - $SNAP/share/icons/oxy-norway
+        - $SNAP/share/icons/oxy-peach
+        - $SNAP/share/icons/oxy-olympus-inv
+        - $SNAP/share/icons/oxy-steel
+        - $SNAP/share/icons/oxy-desert
+        - $SNAP/share/icons/oxy-hot_orange
+        - $SNAP/share/icons/oxy-lilac
+        - $SNAP/share/icons/oxy-orchid
+        - $SNAP/share/icons/oxy-honeycomb
+        - $SNAP/share/icons/oxy-terra
+        - $SNAP/share/icons/oxy-obsidian
+        - $SNAP/share/icons/oxy-emerald
+parts:
+  cursors:
+    plugin: dump
+    source: https://mirrors.kernel.org/ubuntu/pool/universe/o/oxygencursors/oxygen-cursor-theme_$SNAPCRAFT_PROJECT_VERSION_all.deb
+    override-build: |
+      snapcraftctl build
+      mkdir -p $SNAPCRAFT_PART_INSTALL/share/icons
+      mv $SNAPCRAFT_PART_INSTALL/usr/share/icons/oxy-* $SNAPCRAFT_PART_INSTALL/share/icons/
+    stage:
+      - share/icons/oxy-*
+  cursors-extra:
+    plugin: dump
+    source: https://mirrors.kernel.org/ubuntu/pool/universe/o/oxygencursors/oxygen-cursor-theme-extra_$SNAPCRAFT_PROJECT_VERSION_all.deb
+    override-build: |
+      snapcraftctl build
+      mkdir -p $SNAPCRAFT_PART_INSTALL/share/icons
+      mv $SNAPCRAFT_PART_INSTALL/usr/share/icons/oxy-* $SNAPCRAFT_PART_INSTALL/share/icons/
+    stage:
+      - share/icons/oxy-*
