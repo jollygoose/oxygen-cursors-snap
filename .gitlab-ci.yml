@@ -1,0 +1,16 @@
+snap:
+  script:
+    - snapcraft clean
+    - snapcraft
+  artifacts:
+    paths:
+      - "*.snap"
+    expire_in: 1 week
+
+artifact_download:
+  stage: test
+  script:
+    - id=$((CI_JOB_ID-1))
+    - curl -L -o artifacts.zip "$REPO_LOCATION/-/jobs/$id/artifacts/download"
+    - unzip artifacts.zip
+    - review-tools.snap-review *.snap
