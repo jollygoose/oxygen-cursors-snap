@@ -1,7 +1,7 @@
 snap:
   script:
     - snapcraft clean
-    - snapcraft
+    - snapcraft --use-lxd
   artifacts:
     paths:
       - "*.snap"
