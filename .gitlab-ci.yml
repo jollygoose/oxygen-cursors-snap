@@ -1,4 +1,5 @@
 snap:
+  stage: build
   script:
     - snapcraft clean
     - snapcraft --use-lxd
@@ -7,10 +8,9 @@ snap:
       - "*.snap"
     expire_in: 1 week
 
-artifact_download:
+test-snap:
   stage: test
   script:
-    - id=$((CI_JOB_ID-1))
-    - curl -L -o artifacts.zip "$REPO_LOCATION/-/jobs/$id/artifacts/download"
-    - unzip artifacts.zip
     - review-tools.snap-review *.snap
+  dependencies:
+    - snap

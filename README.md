@@ -1,7 +1,5 @@
 Snap of the Oxygen cursor themes (from both the oxygen-cursor-theme and oxygen-cursor-theme-extra packages) originally created for KDE 4.
 
-[![oxygen-cursors](https://snapcraft.io/oxygen-cursors/badge.svg)](https://snapcraft.io/oxygen-cursors)
-
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/oxygen-cursors)
 
 ---
@@ -13,8 +11,8 @@ All credit goes to the original cursor developers of the KDE project and the pac
 ## Building the snap locally
 
 Requirements
-* snapcraft (```snap install snapcraft```)
-* multipass (```snap install multipass```)
+* [snapcraft](https://snapcraft.io/snapcraft) (```snap install snapcraft```)
+* [multipass](https://snapcraft.io/multipass) (```snap install multipass```)
 
 ```sh
 git clone https://github.com/jollygoose/oxygen-cursors-snap
@@ -34,10 +32,14 @@ available for 'icon-themes'.
 
 To apply the theme to a single application, perform the following:
 
-    sudo snap connect [snap-you-want-to-theme]:icon-themes oxygen-cursors:icon-themes
+```bash
+sudo snap connect [snap-you-want-to-theme]:icon-themes oxygen-cursors:icon-themes
+```
 
 To apply to all applications run the following command. Thanks to @flexiondotorg for the handy loop.
 
-    for plug in $(snap connections | grep gtk-common-themes:icon-themes | awk '{print $2}'); do sudo snap connect ${plug} oxygen-cursors:icon-themes; done
+```bash
+for plug in $(snap connections | grep gtk-common-themes:icon-themes | awk '{print $2}'); do sudo snap connect ${plug} oxygen-cursors:icon-themes; done
+```
 
 *NOTE*: Some apps like the Ubuntu Snap Store may require logging out, and back in to load the changes.
