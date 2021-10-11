@@ -1,16 +1,11 @@
-snap:
-  stage: build
-  script:
-    - snapcraft clean
-    - snapcraft --use-lxd
-  artifacts:
-    paths:
-      - "*.snap"
-    expire_in: 1 week
+---
+image: python:3.9-slim
 
-test-snap:
+before_script:
+  - chmod 0600 .
+  - python -m pip install yamllint
+
+lint:
   stage: test
   script:
-    - review-tools.snap-review *.snap
-  dependencies:
-    - snap
+    - yamllint snap/snapcraft.yaml

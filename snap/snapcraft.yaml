@@ -1,3 +1,4 @@
+---
 name: oxygen-cursors
 version: 0.0.2012-06-kde4.8-2.1ubuntu1
 base: core18
@@ -8,8 +9,10 @@ architectures:
   - all
 summary: Oxygen Cursor Theme
 description: |
-  This snap contains the Oxygen Cursor Theme (both oxygen-cursor-theme and oxygen-cursor-theme-extra), 
-  originally created for KDE 4. The cursors are available in numerous colors to match the style of any desktop.
+  This snap contains the Oxygen Cursor Theme (both oxygen-cursor-theme
+  and  oxygen-cursor-theme-extra), originally created for KDE 4. The
+  cursors are available in numerous colors to match the style of any
+  desktop.
 slots:
   icon-themes:
     interface: content
